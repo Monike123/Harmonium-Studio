@@ -150,7 +150,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **Developed by Manas Sawant**  
 *AI Developer & Music Tech Enthusiast*
 
-🔗 [GitHub](https://github.com/Monike123) | 🌐 [LinkedIn](#) | 📧 [Email](#)
+🔗 [GitHub](https://github.com/Monike123) | 🌐 [LinkedIn](https://www.linkedin.com/in/manas-sawant-7b1332283/) | 📧 [Email](manassawant5913@gmail.com)
 
 ---
 
