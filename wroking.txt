@@ -1,0 +1,637 @@
+# config.py
+
+# ----------------------------------------
+# 🎵 Basic Swar Frequencies (Middle Octave)
+# ----------------------------------------
+SWAR_FREQUENCIES = {
+    'Sa': 261.63,
+    'Re(k)': 277.18,
+    'Re': 293.66,
+    'Ga(k)': 311.13,
+    'Ga': 329.63,
+    'Ma': 349.23,
+    'Ma(tivra)': 370.00,
+    'Pa': 392.00,
+    'Dha(k)': 415.30,
+    'Dha': 440.00,
+    'Ni(k)': 466.16,
+    'Ni': 493.88,
+    'Sa(upper)': 523.25
+}
+
+# ----------------------------------------
+# Octave multipliers
+# ----------------------------------------
+OCTAVE_MULTIPLIERS = {
+    'Mandra': 0.5,
+    'Madhya': 1.0,
+    'Tara': 2.0
+}
+
+# ----------------------------------------
+# 🎨 Color Hue to Swar Mapping (0–179)
+# ----------------------------------------
+HUE_TO_SWAR = {
+    (0, 10): 'Sa',     (11, 25): 'Re',   (26, 40): 'Ga',
+    (41, 75): 'Ma',    (76, 100): 'Pa',  (101, 140): 'Dha',
+    (141, 179): 'Ni'
+}
+SATURATION_THRESHOLD = 50
+BRIGHTNESS_THRESHOLD = 50
+
+# ----------------------------------------
+# 🎼 Raga Library (20 ragas)
+# ----------------------------------------
+RAGA_LIBRARY = {
+    'Yaman': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Ma(tivra)","Pa","Dha","Ni"],
+        'aroha': ["Ni","Re","Ga","Ma(tivra)","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma(tivra)","Ga","Re","Sa"],
+        'pakad': ["Ni","Re","Ga","Ma(tivra)"]
+    },
+    'Bhairavi': {
+        'thaat': 'Bhairavi',
+        'swars': ["Sa","Re(k)","Ga","Ma","Pa","Dha(k)","Ni(k)"],
+        'aroha': ["Sa","Re(k)","Ga","Ma","Pa","Dha(k)","Ni(k)","Sa"],
+        'avaroha': ["Sa","Ni(k)","Dha(k)","Pa","Ma","Ga","Re(k)","Sa"],
+        'pakad': ["Sa","Re(k)","Ga","Ma"]
+    },
+    'Malkauns': {
+        'thaat': 'Bhairav',
+        'swars': ["Sa","Ga(k)","Ma","Dha(k)","Ni(k)"],
+        'aroha': ["Sa","Ga(k)","Ma","Dha(k)","Ni(k)","Sa"],
+        'avaroha': ["Sa","Ni(k)","Dha(k)","Ma","Ga(k)","Sa"],
+        'pakad': ["Ga(k)","Ma","Dha(k)"]
+    },
+    'Kafi': {
+        'thaat': 'Kafi',
+        'swars': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni(k)"],
+        'aroha': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni(k)","Sa"],
+        'avaroha': ["Sa","Ni(k)","Dha","Pa","Ma","Ga(k)","Re","Sa"],
+        'pakad': ["Sa","Re","Ga(k)"]
+    },
+    'Bageshri': {
+        'thaat': 'Kafi',
+        'swars': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni(k)"],
+        'aroha': ["Sa","Ga(k)","Ma","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma","Ga(k)","Re","Sa"],
+        'pakad': ["Ma","Dha","Ni"]
+    },
+    'Darbari Kanada': {
+        'thaat': 'Asavari',
+        'swars': ["Sa","Re","Ga(k)","Ma","Pa","Dha(k)","Ni"],
+        'aroha': ["Sa","Re","Ga(k)","Ma","Pa","Dha(k)","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha(k)","Pa","Ma","Ga(k)","Re","Sa"],
+        'pakad': ["Re","Ga(k)","Re","Sa"]
+    },
+    'Puriya Dhanashri': {
+        'thaat': 'Purvi',
+        'swars': ["Sa","Re","Ga(k)","Ma(tivra)","Pa","Dha","Ni(k)"],
+        'aroha': ["Ni","Re","Ga(k)","Ma(tivra)","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni(k)","Dha","Pa","Ma(tivra)","Ga(k)","Re","Sa"],
+        'pakad': ["Re","Ga(k)","Ma"]
+    },
+    'Bhopali': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Pa","Dha"],
+        'aroha': ["Sa","Re","Ga","Pa","Dha","Sa"],
+        'avaroha': ["Sa","Dha","Pa","Ga","Re","Sa"],
+        'pakad': ["Sa","Re","Ga"]
+    },
+    'Marwa': {
+        'thaat': 'Marwa',
+        'swars': ["Sa","Re(k)","Ga","Ma(tivra)","Pa","Dha","Ni"],
+        'aroha': ["Sa","Re(k)","Ga","Ma(tivra)","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma(tivra)","Ga","Re(k)","Sa"],
+        'pakad': ["Re(k)","Ga","Ma(tivra)"]
+    },
+    'Todi': {
+        'thaat': 'Todi',
+        'swars': ["Sa","Re(k)","Ga(k)","Ma(tivra)","Pa","Dha(k)","Ni"],
+        'aroha': ["Sa","Re(k)","Ga(k)","Ma(tivra)","Pa","Dha(k)","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha(k)","Pa","Ma(tivra)","Ga(k)","Re(k)","Sa"],
+        'pakad': ["Re(k)","Ga(k)","Ma(tivra)"]
+    },
+    'Bhairav': {
+        'thaat': 'Bhairav',
+        'swars': ["Sa","Re(k)","Ga","Ma","Pa","Dha(k)","Ni"],
+        'aroha': ["Sa","Re(k)","Ga","Ma","Pa","Dha(k)","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha(k)","Pa","Ma","Ga","Re(k)","Sa"],
+        'pakad': ["Sa","Re(k)","Ga"]
+    },
+    'Shree': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Ma","Pa","Dha(k)","Ni"],
+        'aroha': ["Sa","Re","Ga","Ma","Pa","Dha(k)","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha(k)","Pa","Ma","Ga","Re","Sa"],
+        'pakad': ["Pa","Ga","Ma"]
+    },
+    'Jaunpuri': {
+        'thaat': 'Asavari',
+        'swars': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni(k)"],
+        'aroha': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni(k)","Sa"],
+        'avaroha': ["Sa","Ni(k)","Dha","Pa","Ma","Ga(k)","Re","Sa"],
+        'pakad': ["Ni(k)","Dha","Pa"]
+    },
+    'Charukeshi': {
+        'thaat': 'Kafi',
+        'swars': ["Sa","Re","Ga","Ma","Pa","Dha","Ni"],
+        'aroha': ["Sa","Re","Ga","Ma","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma","Ga","Re","Sa"],
+        'pakad': ["Ga","Ma","Pa"]
+    },
+    'Kedar': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Ma(tivra)","Pa","Dha","Ni"],
+        'aroha': ["Sa","Re","Ga","Ma(tivra)","Pa","Ma(tivra)","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma(tivra)","Ga","Re","Sa"],
+        'pakad': ["Ma(tivra)","Pa","Ma(tivra)"]
+    },
+    'Hamsadhwani': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Pa","Ni"],
+        'aroha': ["Sa","Re","Ga","Pa","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Pa","Ga","Re","Sa"],
+        'pakad': ["Sa","Re","Ni"]
+    },
+    'Durga': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ma","Pa","Dha"],
+        'aroha': ["Sa","Re","Ma","Pa","Dha","Sa"],
+        'avaroha': ["Sa","Dha","Pa","Ma","Re","Sa"],
+        'pakad': ["Sa","Re","Ma"]
+    },
+    'Bihag': {
+        'thaat': 'Kalyan',
+        'swars': ["Sa","Re","Ga","Ma","Pa","Dha","Ni"],
+        'aroha': ["Sa","Re","Ga","Pa","Dha","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma","Ga","Re","Sa"],
+        'pakad': ["Ga","Pa","Ga"]
+    },
+    'Bageshri Kanada': {
+        'thaat': 'Asavari',
+        'swars': ["Sa","Re","Ga(k)","Ma","Pa","Dha","Ni"],
+        'aroha': ["Sa","Ga(k)","Pa","Ni","Sa"],
+        'avaroha': ["Sa","Ni","Dha","Pa","Ma","Ga(k)","Re","Sa"],
+        'pakad': ["Ga(k)","Pa","Ni"]
+    }
+}
+
+# RAGA_LIBRARY now holds 20 ragas
+
+
+###########################################################################################################################################
+###########################################################################################################################################
+###########################################################################################################################################
+###########################################################################################################################################
+#enhance tune
+
+
+import os
+import re
+import math
+import random
+import numpy as np
+import librosa
+from scipy.signal import fftconvolve
+from pydub import AudioSegment
+from pydub.effects import low_pass_filter, high_pass_filter
+
+# ======== CONFIGURATION ========
+DATA_DIR = "data"
+OUTPUT_DIR = "output"
+START_TUNE_PATH = os.path.join(DATA_DIR, "start_tune.wav")
+END_TUNE_PATH   = os.path.join(DATA_DIR, "end_tune.wav")
+IR_PATH         = os.path.join(DATA_DIR, "ir.wav")
+OUTPUT_FILE     = os.path.join(OUTPUT_DIR, "enhanced_tune.wav")
+
+SWAR_SAMPLE_MAP = {
+    "Sa": "sa.wav", "Re": "re.wav", "Ga": "ga.wav", "Ma": "ma.wav",
+    "Pa": "pa.wav", "Dh": "dha.wav", "Ni": "ni.wav"
+}
+SWAR_SAMPLE_MAP = {k: os.path.join(DATA_DIR, fn) for k, fn in SWAR_SAMPLE_MAP.items()}
+
+NOTES_PER_PHRASE       = 7
+LONG_PRESS_MULTIPLIER  = 3.0
+PHRASE_END_HOLD        = True
+RUBATO_MAX_OFFSET_MS   = 4
+
+CROSSFADE_BASE_MS        = 120
+INTERVAL_CROSSFADE_FACTOR = 30
+MAX_CROSSFADE_MS          = 450
+
+BG_VOLUME_REDUCTION_DB = -20
+RHYTHM_VOLUME_PATTERN  = [1.0,1.05,0.98,1.02,0.97,1.03,0.95,1.0]
+SCALE_ORDER            = ["Sa","Re","Ga","Ma","Pa","Dh","Ni","Sa"]
+
+# ======== HUMANIZATION CONFIG ========
+RANDOM_LONG_PRESS_PROB = 0.1   # 10% chance per note
+RANDOM_LONG_PRESS_MULT = 1.5   # 1.5× duration when triggered
+VIBRATO_FREQ_RANGE     = (5.5,7.0)
+VIBRATO_DEPTH_RANGE    = (1.0,1.5)
+
+# ======== LOAD IMPULSE RESPONSE ========
+IR_SIGNAL = None
+if os.path.exists(IR_PATH):
+    IR_SIGNAL, sr = librosa.load(IR_PATH, sr=44100)
+    IR_SIGNAL /= np.max(np.abs(IR_SIGNAL))
+
+# ======== EFFECT UTILITIES ========
+def apply_convolution_reverb(seg: AudioSegment) -> AudioSegment:
+    samples = np.array(seg.get_array_of_samples(), dtype=float)
+    samples = samples.reshape((seg.channels, -1))
+    wet = fftconvolve(samples, IR_SIGNAL[np.newaxis, :], mode='full')[:, :samples.shape[1]]
+    wet = wet / np.max(np.abs(wet)) * (seg.max / 32767)
+    out = AudioSegment(
+        wet.T.astype(np.int16).tobytes(),
+        frame_rate=seg.frame_rate,
+        sample_width=seg.sample_width,
+        channels=seg.channels
+    )
+    return seg.overlay(out - 6)
+
+def portamento(prev_seg: AudioSegment, curr_seg: AudioSegment, slide_ms=40, cents=20) -> AudioSegment:
+    factor = 2 ** (cents / 1200)
+    tail = prev_seg[-slide_ms:]._spawn(
+        prev_seg[-slide_ms:].raw_data,
+        overrides={'frame_rate': int(prev_seg.frame_rate * factor)}
+    ).set_frame_rate(prev_seg.frame_rate)
+    head = prev_seg[:-slide_ms]
+    slid = tail.append(curr_seg, crossfade=slide_ms)
+    return head + slid
+
+def apply_vibrato(segment: AudioSegment, freq=6, depth_db=1.2) -> AudioSegment:
+    modulated = segment
+    for i in range(0, len(segment), 200):
+        gain = math.sin(i/1000 * freq * 2*math.pi) * depth_db
+        modulated = modulated.overlay(segment[i:i+200].apply_gain(gain), position=i)
+    return modulated
+
+# ======== MAIN EXPORT FUNCTION ========
+def generate_from_clean_swar_sequence(sequence, output_file=OUTPUT_FILE,max_duration=None):
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    # Decide Intro/Outro Mode
+    mode = random.choice(['none','intro','outro','both','swap'])
+    master = AudioSegment.silent(0)
+    # — RANDOMIZE RHYTHM & SCALE ORDER FOR FRESHNESS —
+    pattern = RHYTHM_VOLUME_PATTERN.copy()
+    random.shuffle(pattern)
+
+    # create a working copy of the scale
+    scale = SCALE_ORDER.copy()
+    # 50% chance to reverse (descending feel)
+    if random.random() < 0.5:
+        scale.reverse()
+    # rotate starting point by a random offset
+    rot = random.randint(0, len(scale)-1)
+    scale = scale[rot:] + scale[:rot]
+
+    # 1) Intro handling
+    if mode in ('intro','both') and os.path.exists(START_TUNE_PATH):
+        master += AudioSegment.from_wav(START_TUNE_PATH)
+    if mode == 'swap' and os.path.exists(END_TUNE_PATH):
+        master += AudioSegment.from_wav(END_TUNE_PATH)
+
+    # 2) Random Background
+    bg = None
+    # collect any .wav file starting with "bg" or "bf"
+    candidates = []
+    for fn in os.listdir(DATA_DIR):
+        if (fn.lower().startswith("bg") or fn.lower().startswith("bf")) and fn.lower().endswith(".wav"):
+            candidates.append(os.path.join(DATA_DIR, fn))
+    if candidates:
+        chosen = random.choice(candidates)
+        bg = AudioSegment.from_file(chosen).apply_gain(BG_VOLUME_REDUCTION_DB)
+
+    # 3) Load Swar Samples
+    swars = {lbl: AudioSegment.from_wav(path)
+             for lbl,path in SWAR_SAMPLE_MAP.items() if os.path.exists(path)}
+
+    # 4) Build Melody
+    main, prev_seg, prev_lbl = AudioSegment.silent(0), None, None
+    pat = len(RHYTHM_VOLUME_PATTERN)
+    for i, note in enumerate(sequence, 1):
+        lbl = re.findall(r"[A-Za-z]+", note['swar'])[0][:2]
+        if lbl not in swars: continue
+
+        # Duration
+        d = max(10, int(note['duration']*1000))
+        if PHRASE_END_HOLD and i%NOTES_PER_PHRASE==0:
+            d = int(d * LONG_PRESS_MULTIPLIER)
+        if random.random() < RANDOM_LONG_PRESS_PROB:
+            d = int(d * RANDOM_LONG_PRESS_MULT)
+
+        # Rubato
+        j = random.randint(-RUBATO_MAX_OFFSET_MS, RUBATO_MAX_OFFSET_MS)
+        if j>0:
+            main += AudioSegment.silent(j)
+        elif j<0 and len(main)>abs(j):
+            main = main[:-abs(j)]
+
+        # Gain and filters
+        breath = pattern[(i-1)%pat]
+        accent = 4 if i%NOTES_PER_PHRASE==0 else 0
+        g = (note['volume']*breath - 0.5)*20 + accent
+        clip = swars[lbl][:d].apply_gain(g)
+        clip = low_pass_filter(clip,4000)
+        clip = high_pass_filter(clip,150)
+
+        # Dynamic vibrato
+        vf = random.uniform(*VIBRATO_FREQ_RANGE)
+        vd = random.uniform(*VIBRATO_DEPTH_RANGE)
+        clip = apply_vibrato(clip, freq=vf, depth_db=vd)
+
+        # Fades
+        clip = clip.fade(to_gain=-3.0, start=0, duration=80)\
+                   .fade(to_gain=-6.0, start=d-100, duration=80)
+
+        # Crossfade based on scale distance
+        cf = 0
+        if prev_lbl:
+            idx1 = scale.index(prev_lbl)
+            idx2 = scale.index(lbl)
+            steps = abs((idx2 - idx1) % len(SCALE_ORDER))
+            cf = min(
+                MAX_CROSSFADE_MS,
+                CROSSFADE_BASE_MS + steps*INTERVAL_CROSSFADE_FACTOR,
+                len(main),
+                len(clip)//2
+            )
+
+        # Portamento for close moves
+        if prev_seg and abs(scale.index(prev_lbl)-scale.index(lbl))<=2:
+            clip = portamento(prev_seg, clip)
+
+        # Append
+        main = main.append(clip, crossfade=cf) if cf>0 else main + clip
+        prev_seg, prev_lbl = clip, lbl
+
+    # 5) Mix background
+    if bg and len(main)>0:
+        loops = math.ceil(main.duration_seconds / bg.duration_seconds)
+        bg_loop = (bg*loops)[:len(main)]
+        main = bg_loop.overlay(main)
+
+    # 6) Outro handling
+    if mode in ('outro','both') and os.path.exists(END_TUNE_PATH):
+        master = master + main + AudioSegment.from_wav(END_TUNE_PATH)
+    elif mode=='swap' and os.path.exists(START_TUNE_PATH):
+        master = master + main + AudioSegment.from_wav(START_TUNE_PATH)
+    else:
+        master = master + main
+
+    # 7) Reverb
+    if IR_SIGNAL is not None:
+        master = apply_convolution_reverb(master)
+
+    # 8) Trim to max_duration if specified
+    if max_duration is not None:
+        max_ms = int(max_duration * 1000)
+        master = master[:max_ms]
+
+    # 9) Export
+    master.export(output_file, format="wav")
+    print(f"✅ Enhanced audio exported to: {output_file}")
+
+###########################################################################################################################################
+###########################################################################################################################################
+###########################################################################################################################################
+###########################################################################################################################################
+
+#swar
+
+import random
+from config import SWAR_FREQUENCIES, OCTAVE_MULTIPLIERS
+
+# ----------------------------------------
+# Helper: Scale Definitions
+# ----------------------------------------
+SCALE_ORDER = ["Sa", "Re", "Ga", "Ma", "Pa", "Dh", "Ni"]
+
+# ----------------------------------------
+# Helper Functions
+# ----------------------------------------
+def get_index(note):
+    return SCALE_ORDER.index(note) if note in SCALE_ORDER else -1
+
+def get_note(idx):
+    return SCALE_ORDER[idx] if 0 <= idx < len(SCALE_ORDER) else None
+
+# ----------------------------------------
+# 1. ORIGINAL SWAR ARRANGEMENT
+# ----------------------------------------
+def arrange_swar_sequence(swar_source, total_duration=10.0, music_params=None):
+    tempo_multiplier = music_params.get("tempo_multiplier", 1.0) if music_params else 1.0
+    volume_min, volume_max = music_params.get("volume_range", (0.6,1.0)) if music_params else (0.6,1.0)
+    notes_per_phrase = random.randint(6,9)  # variable phrase length
+
+    avg_note_duration = 0.4 / tempo_multiplier
+    total_notes = int(total_duration / avg_note_duration)
+
+    # Normalize source
+    swar_freq_list = []
+    if isinstance(swar_source[0][1], str):
+        for swar, octv in swar_source:
+            base = SWAR_FREQUENCIES.get(swar, 0.0)
+            multi = OCTAVE_MULTIPLIERS.get(octv, 1.0)
+            swar_freq_list.append((swar, base * multi))
+    else:
+        swar_freq_list = swar_source.copy()
+
+    idx_map = {s: i for i, s in enumerate(SCALE_ORDER)}
+
+    # 1) Logical Phrase Generation with up to 2 repeats max
+    sequence = []
+    prev1 = prev2 = None
+    # start on Sa if possible
+    current = next(((s,f) for s,f in swar_freq_list if s=="Sa"), swar_freq_list[0])
+    sequence.append(current)
+    prev1 = current[0]
+
+    for _ in range(total_notes - 1):
+        # occasional rest
+        if random.random() < 0.1 and prev1 != "Rest":
+            sequence.append(("Rest", 0.0))
+            prev2, prev1 = prev1, "Rest"
+            continue
+
+        last_idx = idx_map.get(prev1, 0)
+        direction = random.choice([-1, 1])
+        step = 1 if random.random() < 0.7 else 2
+        next_idx = max(0, min(last_idx + direction*step, len(SCALE_ORDER)-1))
+
+        candidates = [it for it in swar_freq_list
+                      if idx_map.get(it[0], -1) == next_idx]
+
+        # fallback to near-range
+        if not candidates:
+            candidates = [it for it in swar_freq_list
+                          if abs(idx_map.get(it[0],0) - last_idx) <= 2]
+
+        # enforce max 2 repeats
+        filtered = [c for c in candidates
+                    if not (c[0] == prev1 == prev2)]
+        pick_list = filtered or candidates or swar_freq_list
+        nxt = random.choice(pick_list)
+
+        sequence.append(nxt)
+        prev2, prev1 = prev1, nxt[0]
+
+    # 2) Jitter smoothing
+    jitters = [random.uniform(-0.25,0.25) for _ in sequence]
+    smooth_jitters = []
+    for i in range(len(jitters)):
+        win = jitters[max(0,i-1):min(len(jitters),i+2)]
+        smooth_jitters.append(sum(win)/len(win))
+
+    # 3) Finalize note events
+    final = []
+    for idx, ((swar,freq), j) in enumerate(zip(sequence, smooth_jitters), 1):
+        if swar == "Rest":
+            dur = avg_note_duration * random.uniform(0.4,0.6)
+            final.append({'swar':'Re','frequency':0.0,'duration':dur,'volume':0.0})
+            continue
+        dur = max(0.2, avg_note_duration*(1+j))
+        if idx % notes_per_phrase == 0:
+            dur *= 1.2
+        vol = random.uniform(volume_min, volume_max)
+        final.append({'swar':swar,'frequency':freq,'duration':dur,'volume':vol})
+
+    # 4) Soft Asc/Desc Phrases with small swaps, no >2 repeats
+    for i in range(0, len(final), notes_per_phrase):
+        block = final[i:i+notes_per_phrase]
+        notes = [n for n in block if n['volume']>0]
+        if not notes: continue
+
+        sorted_notes = sorted(notes, key=lambda x: x['frequency'])
+        order = sorted_notes.copy()
+        for j in range(len(order)-1):
+            if random.random() < 0.3:
+                order[j],order[j+1] = order[j+1],order[j]
+        seq_ord = order if random.random()<0.5 else list(reversed(order))
+        it = iter(seq_ord)
+        for j in range(len(block)):
+            if block[j]['volume']>0:
+                candidate = next(it)
+                # enforce ≤2 repeats
+                prev_vals = [block[k]['swar'] for k in range(max(0,j-2), j)]
+                if prev_vals.count(candidate['swar']) < 2:
+                    block[j] = candidate
+        final[i:i+notes_per_phrase] = block
+
+    return final
+
+# ----------------------------------------
+# 2. ENHANCED SWAR SEQUENCE BUILDER
+# ----------------------------------------
+# 50 handcrafted melodic phrases
+PHRASES = [
+    ['Sa','Re','Ga','Ma'], ['Pa','Dh','Ni','Sa'], ['Ga','Re','Sa','Ni'],
+    ['Ma','Ga','Re','Sa'], ['Sa','Re','Ma','Pa'], ['Ga','Ma','Pa','Dh'],
+    ['Dha','Ni','Sa','Re'], ['Pa','Ma','Ga','Re'], ['Ni','Re','Ma','Pa'],
+    ['Ga','Pa','Dh','Ni'], ['Sa','Ga','Ni','Pa'], ['Pa','Ga','Ma','Re'],
+    ['Ni','Dha','Pa','Ma'], ['Sa','Re','Ga','Ma','Pa'], ['Pa','Ma','Ga','Re','Sa'],
+    ['Ma','Pa','Dh','Ni','Sa'], ['Re','Ga','Ma','Pa','Dha'], ['Ga','Ma','Pa','Ni','Sa'],
+    ['Ma','Dh','Pa','Re','Sa'], ['Pa','Ni','Sa','Re','Ga'], ['Sa','Pa','Ma','Ga'],
+    ['Re','Sa','Ni','Dha'], ['Ga','Re','Sa','Pa'], ['Ma','Ga','Re','Ni'],
+    ['Pa','Sa','Re','Ga'], ['Dha','Pa','Ma','Re'], ['Ni','Ma','Ga','Re'],
+    ['Sa','Re','Pa','Sa'], ['Re','Ga','Pa','Ni'], ['Ga','Ma','Ni','Sa'],
+    ['Ma','Pa','Sa','Re'], ['Pa','Dha','Re','Sa'], ['Dha','Ni','Ga','Ma'],
+    ['Ni','Sa','Pa','Ma'], ['Sa','Ma','Pa','Ga'], ['Re','Pa','Dha','Ni'],
+    ['Ga','Sa','Re','Ni'], ['Ma','Sa','Ga','Dha'], ['Pa','Re','Sa','Ni'],
+    ['Dha','Ga','Ma','Pa'], ['Ni','Pa','Re','Sa'], ['Sa','Re','Ga'],
+    ['Re','Ga','Ma'], ['Ga','Ma','Pa'], ['Ma','Pa','Dha'], ['Pa','Dha','Ni'],
+    ['Dha','Ni','Sa'], ['Ni','Sa','Re'], ['Sa','Re','Ga','Ma','Pa','Dha','Ni']
+]
+
+# Markov transitions
+TRANSITIONS = {
+    'Sa': ['Re', 'Ga', 'Ma', 'Pa'],
+    'Re': ['Sa', 'Ga', 'Ma', 'Pa', 'Dha'],
+    'Ga': ['Re', 'Ma', 'Pa', 'Dha', 'Ni'],
+    'Ma': ['Ga', 'Pa', 'Dha', 'Ni', 'Sa'],
+    'Pa': ['Ma', 'Dha', 'Ni', 'Sa', 'Re'],
+    'Dha': ['Pa', 'Ni', 'Sa', 'Re', 'Ga'],
+    'Ni': ['Dha', 'Sa', 'Re', 'Ga', 'Ma']
+}
+
+def generate_markov_sequence(length, swar_pool):
+    seq = [random.choice(swar_pool)]
+
+    def is_valid(candidate):
+        temp = seq + [candidate]
+        for k in [2, 3]:
+            if len(temp) >= k * 2:
+                a, b = temp[-k:], temp[-2 * k:-k]
+                c = temp[-3 * k:-2 * k] if len(temp) >= 3 * k else []
+                if a == b == c:
+                    return False
+        return True
+
+    while len(seq) < length:
+        curr = seq[-1]
+        opts = TRANSITIONS.get(curr, swar_pool)
+        valid = [n for n in opts if n in swar_pool and is_valid(n)]
+        seq.append(random.choice(valid if valid else swar_pool))
+    return seq
+
+def insert_phrases(base_seq, swar_pool, every=8):
+    out = []
+    phrases = PHRASES.copy()
+    random.shuffle(phrases)
+    for i in range(0, len(base_seq), every):
+        chunk = base_seq[i:i+every]
+        # avoid >2 at boundary
+        for n in chunk:
+            if len(out)>=2 and out[-1]==out[-2]==n: continue
+            out.append(n)
+        if random.random()<0.6:
+            p = random.choice(phrases)
+            for x in p:
+                if x in swar_pool and not(len(out)>=2 and out[-1]==out[-2]==x):
+                    out.append(x)
+    return out[:len(base_seq)]
+
+def smooth_melody(seq, swar_pool):
+    out = []
+    for a,b in zip(seq, seq[1:]):
+        out.append(a)
+        i1,i2 = get_index(a), get_index(b)
+        if abs(i1 - i2) > 2:
+            step = 1 if i2>i1 else -1
+            for j in range(i1+step, i2, step):
+                note = get_note(j)
+                if note in swar_pool and not(len(out)>=2 and out[-1]==out[-2]==note):
+                    out.append(note)
+    out.append(seq[-1])
+    return out
+
+def enhance_swar_sequence(swar_source, total_duration=10.0, music_params=None):
+    tempo = music_params.get("tempo_multiplier",1.0) if music_params else 1.0
+    avg = 0.4/tempo
+    count = int(total_duration/avg)
+
+    # build pool & freq
+    if isinstance(swar_source[0][1], str):
+        pool = [s for s,_ in swar_source]
+        freq_map = {s: SWAR_FREQUENCIES.get(s,0.0)*OCTAVE_MULTIPLIERS.get(o,1.0)
+                    for s,o in swar_source}
+    else:
+        pool = [s for s,_ in swar_source]
+        freq_map = {s:f for s,f in swar_source}
+
+    raw = generate_markov_sequence(count, pool)
+    phrased = insert_phrases(raw, pool, every=random.randint(6,9))
+    smooth = smooth_melody(phrased, pool)
+
+    sequence = []
+    for s in smooth[:count]:
+        sequence.append({
+            'swar': s,
+            'frequency': freq_map.get(s,0.0),
+            'duration': random.choice([0.5,0.75,1.0]),
+            'volume': 1.0
+        })
+    return sequence

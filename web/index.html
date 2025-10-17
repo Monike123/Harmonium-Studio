@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image to Harmonium</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 → 🎶 Image to Harmonium Generator</h1>
+    
+    <form id="upload-form" enctype="multipart/form-data">
+      <label for="image">🖼 Upload Image:</label>
+      <input type="file" name="image" id="image" accept="image/*" required>
+
+      <label for="duration">🎛 Duration (seconds):</label>
+      <input type="number" name="duration" id="duration" min="3" max="60" value="7" step="1" required>
+
+      <label for="raga">🎼 Choose Raga (optional):</label>
+      <select name="raga" id="raga">
+        <option value="">🎯 Auto Detect</option>
+        <option value="Yaman">Yaman</option>
+        <option value="Bhairav">Bhairav</option>
+        <option value="Malkauns">Malkauns</option>
+        <option value="Darbari Kanada">Darbari Kanada</option>
+        <option value="Bageshri">Puriya Dhanashri</option>
+        <option value="Bhopali">Bhopali</option>
+        <option value="Puriya Dhanashri">Puriya Dhanashri</option>
+        <option value="Puriya Dhanashri">Kafi</option>
+      </select>
+
+      <button type="submit">🎵 Generate Music</button>
+    </form>
+
+    <div id="output" class="hidden">
+      <h2>🔍 Image Analysis</h2>
+      <p id="raga-info"></p>
+      <p id="swaras-info"></p>
+
+      <h3>🎧 Normal Music</h3>
+      <audio controls id="audio-player">
+        <source id="audio-source" src="" type="audio/wav">
+      </audio>
+      <a id="download-link-normal" href="" download="output.wav">⬇️ Download Normal Music</a>
+
+      <h3>✨ Enhanced Music</h3>
+      <audio controls id="enhanced-audio-player">
+        <source id="enhanced-audio-source" src="" type="audio/wav">
+      </audio>
+      <a id="download-link-enhanced" href="" download="enhanced_tune.wav">⬇️ Download Enhanced Music</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎵 Harmonium Studio - Create Music</title>
+  <link rel="stylesheet" href="/static2/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="app-nav">
+    <div class="nav-content">
+      <a href="/static2/index.html" class="nav-brand">
+        <div class="brand-icon">🎹</div>
+        <span>Harmonium Studio</span>
+      </a>
+      <div class="nav-title">
+        <h1>Image to Harmonium Generator</h1>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loading-spinner"></div>
+    <p>Generating harmonium tunes...</p>
+  </div>
+
+  <!-- Error Toast -->
+  <div id="errorToast" class="error-toast hidden">
+    <div class="error-content">
+      <span id="errorMessage"></span>
+      <button id="closeError" class="close-error">&times;</button>
+    </div>
+  </div>
+
+  <div class="container app-container">
+    <!-- Controls Card -->
+    <div class="card controls-card">
+      <div class="controls-content">
+        <div class="duration-control">
+          <div class="input-group">
+            <label for="duration" class="input-label">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+              Duration (seconds)
+            </label>
+            <input type="number" id="duration" min="5" max="60" value="15" class="duration-input" />
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="startBtn" class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+            Start Generation
+          </button>
+          <button id="stopBtn" class="btn btn-secondary" disabled>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="6" y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            Stop
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12,6 12,12 16,14"/>
+          </svg>
+        </div>
+        <div class="stat-value" id="time">0s</div>
+        <div class="stat-label">Elapsed Time</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21,15 16,10 5,21"/>
+          </svg>
+        </div>
+        <div class="stat-value" id="count">0</div>
+        <div class="stat-label">Tunes Generated</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="stat-value" id="remaining">—</div>
+        <div class="stat-label">Time Remaining</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content hidden">
+      <div class="content-card">
+        <div class="content-grid">
+          <!-- Image Section -->
+          <div class="image-section">
+            <div class="image-container">
+              <div id="imageLoader" class="image-loader hidden">
+                <div class="spinner"></div>
+              </div>
+              <img id="slideImg" src="/placeholder.svg" alt="Generated image" class="slide-image" />
+            </div>
+          </div>
+
+          <!-- Audio Player Section -->
+          <div class="audio-section">
+            <div class="audio-content">
+              <div class="audio-header">
+                <h3>Generated Harmonium Tune</h3>
+                <p>Based on image colors and features</p>
+              </div>
+
+              <div class="custom-audio-player">
+                <div class="audio-controls">
+                  <button id="playPauseBtn" class="play-pause-btn" disabled>
+                    <div id="audioLoader" class="audio-loader hidden">
+                      <div class="spinner"></div>
+                    </div>
+                    <svg id="playIcon" class="play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="5,3 19,12 5,21"/>
+                    </svg>
+                    <svg id="pauseIcon" class="pause-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="6" y="4" width="4" height="16"/>
+                      <rect x="14" y="4" width="4" height="16"/>
+                    </svg>
+                  </button>
+                  
+                  <div class="volume-control">
+                    <svg class="volume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="progress-section">
+                  <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                  </div>
+                  <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hidden HTML5 Audio Element -->
+              <audio id="audioPlayer" preload="auto"></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcomeMessage" class="welcome-card">
+      <div class="welcome-content">
+        <div class="welcome-icon">🎵</div>
+        <h3>Ready to Generate Music Sequence</h3>
+        <p>Click "Start Generation" to select 10 random images and create harmonium melodies. The system will generate all tunes first, then play them in a continuous sequence with smooth transitions.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static2/main.js"></script>
+</body>
+</html>

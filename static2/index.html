@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎵 Harmonium Studio - Image to Music</title>
+  <link rel="stylesheet" href="/static2/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+  <!-- Hero Section -->
+  <div class="hero-container">
+    <div class="hero-background">
+      <div class="floating-notes">
+        <div class="note note-1">♪</div>
+        <div class="note note-2">♫</div>
+        <div class="note note-3">♪</div>
+        <div class="note note-4">♫</div>
+        <div class="note note-5">♪</div>
+        <div class="note note-6">♫</div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <!-- Navigation -->
+      <nav class="hero-nav">
+        <div class="nav-brand">
+          <div class="brand-icon">🎹</div>
+          <span>Harmonium Studio</span>
+        </div>
+      </nav>
+
+      <!-- Main Hero Content -->
+      <div class="hero-main">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Transform Images into
+            <span class="gradient-text">Harmonium Melodies</span>
+          </h1>
+          <p class="hero-description">
+            Experience the magic of AI-powered music generation. Upload any image and watch as our advanced algorithms analyze colors, patterns, and features to create beautiful raga-based harmonium compositions.
+          </p>
+          
+          <div class="hero-features">
+            <div class="feature-item">
+              <div class="feature-icon">🎨</div>
+              <span>Color Analysis</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎵</div>
+              <span>Raga Selection</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎹</div>
+              <span>Harmonium Synthesis</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="/static2/app.html" class="cta-button primary">
+              <span class="button-icon">🎶</span>
+              Start Creating Music
+              <div class="button-shine"></div>
+            </a>
+            <button class="cta-button secondary" onclick="scrollToDemo()">
+              <span class="button-icon">▶️</span>
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="harmonium-container">
+            <div class="harmonium-body">
+              <div class="harmonium-top">
+                <div class="harmonium-keys">
+                  <div class="key white-key key-1"></div>
+                  <div class="key black-key black-1"></div>
+                  <div class="key white-key key-2"></div>
+                  <div class="key black-key black-2"></div>
+                  <div class="key white-key key-3"></div>
+                  <div class="key white-key key-4"></div>
+                  <div class="key black-key black-3"></div>
+                  <div class="key white-key key-5"></div>
+                  <div class="key black-key black-4"></div>
+                  <div class="key white-key key-6"></div>
+                  <div class="key black-key black-5"></div>
+                  <div class="key white-key key-7"></div>
+                </div>
+                <div class="harmonium-bellows">
+                  <div class="bellow-fold"></div>
+                  <div class="bellow-fold"></div>
+                  <div class="bellow-fold"></div>
+                </div>
+              </div>
+              <div class="harmonium-base">
+                <div class="air-chamber"></div>
+              </div>
+            </div>
+            
+            <!-- Animated Elements -->
+            <div class="music-waves">
+              <div class="wave wave-1"></div>
+              <div class="wave wave-2"></div>
+              <div class="wave wave-3"></div>
+            </div>
+            
+            <div class="image-preview">
+              <div class="preview-frame">
+                <div class="preview-image"></div>
+                <div class="preview-arrow">→</div>
+                <div class="preview-notes">♪ ♫ ♪</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="features-section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Our AI-powered system transforms visual art into musical masterpieces</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <div class="icon-bg">📸</div>
+          </div>
+          <h3>1. Upload Image</h3>
+          <p>Select any image from your collection. Our system works with photographs, artwork, patterns, or any visual content.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <div class="icon-bg">🔍</div>
+          </div>
+          <h3>2. AI Analysis</h3>
+          <p>Advanced algorithms analyze dominant colors, patterns, and visual features to determine musical characteristics.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <div class="icon-bg">🎼</div>
+          </div>
+          <h3>3. Raga Selection</h3>
+          <p>Based on color analysis, our system selects appropriate Indian classical ragas that match the image's mood and tone.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <div class="icon-bg">🎹</div>
+          </div>
+          <h3>4. Harmonium Synthesis</h3>
+          <p>Generate authentic harmonium sounds with proper swar sequences, creating beautiful melodies from your images.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Classical Ragas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Unique Melodies</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">AI</div>
+          <div class="stat-label">Powered Analysis</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">🎵</div>
+          <div class="stat-label">Pure Harmonium</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Create Your Musical Masterpiece?</h2>
+        <p>Transform your favorite images into beautiful harmonium melodies in just a few clicks.</p>
+        <a href="/static2/app.html" class="cta-button primary large">
+          <span class="button-icon">🎶</span>
+          Start Creating Now
+          <div class="button-shine"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-icon">🎹</div>
+          <span>Harmonium Studio</span>
+        </div>
+        <p>Bridging the gap between visual art and musical expression through AI.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for demo button
+    function scrollToDemo() {
+      document.getElementById('demo').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    // Animate harmonium keys
+    function animateKeys() {
+      const keys = document.querySelectorAll('.white-key, .black-key');
+      keys.forEach((key, index) => {
+        setTimeout(() => {
+          key.style.transform = 'translateY(2px)';
+          key.style.boxShadow = '0 2px 8px rgba(139, 92, 246, 0.3)';
+          setTimeout(() => {
+            key.style.transform = 'translateY(0)';
+            key.style.boxShadow = '';
+          }, 200);
+        }, index * 100);
+      });
+    }
+
+    // Auto-animate keys every 5 seconds
+    setInterval(animateKeys, 5000);
+
+    // Animate on page load
+    window.addEventListener('load', () => {
+      setTimeout(animateKeys, 1000);
+    });
+
+    // Parallax effect for floating notes
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const notes = document.querySelectorAll('.note');
+      notes.forEach((note, index) => {
+        const speed = 0.5 + (index * 0.1);
+        note.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+  </script>
+</body>
+</html>

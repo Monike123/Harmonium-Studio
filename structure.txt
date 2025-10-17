@@ -1,0 +1,30 @@
+image_to_harmonium/
+│
+├── main.py                     # Pipeline launcher
+├── config.py                   # Constants and global mappings (e.g., swar frequencies)
+├── server.py              # Flask server to run the backend
+|
+├── image_analysis/
+│   ├── color_extractor.py      # Extract dominant colors from image
+│   ├── feature_analysis.py     # Texture, brightness, symmetry, object detection (future)
+│   └── swar_mapper.py          # Map colors to swaras with octave logic
+│
+├── music_generation/
+│   ├── raga_selector.py        # Select raga based on image tone
+│   ├── swar_arranger.py        # Arrange swaras in time sequence
+│   └── harmonium_synth.py      # Generate harmonium WAV from swar sequence
+|
+├── soundfonts/
+│   └── harmonium.sf2
+├── web/
+│   ├── index.html         # Frontend UI
+│   ├── styles.css         # Styling
+│   └── script.js          # (Optional) JS for interactivity
+|
+├── utils/
+│   └── audio_utils.py          # WAV merging, saving, filtering, normalization, etc.
+│
+├── samples/
+│   └── input.jpg               # Example input image
+└── output/
+    └── output.wav              # Final audio file
