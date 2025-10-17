@@ -21,8 +21,7 @@ Whether you're a music enthusiast, AI researcher, or cultural tech explorer, Har
 
 ## 🎥 Demo
 
-🎬 **[Watch Demo Video](https://via.placeholder.com/800x400?text=Harmonium+Studio+Interface)** _(Add your demo video link)_
-_Screenshot placeholder - Add your actual screenshots to showcase the interface_
+[**Demo Video**](https://github.com/Monike123/Harmonium-Studio/blob/main/1.mp4)
 
 ---
 
