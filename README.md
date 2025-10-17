@@ -7,6 +7,9 @@
 
 > Transform random images into mesmerizing Indian Classical music using AI-powered raga synthesis
 
+
+<img width="1024" height="1024" alt="frontimg" src="https://github.com/user-attachments/assets/c1ef305d-88f0-48a4-a3a1-03dffb04a151" />
+
 ---
 
 ## 📖 Description
