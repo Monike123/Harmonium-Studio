@@ -21,7 +21,7 @@ Whether you're a music enthusiast, AI researcher, or cultural tech explorer, Har
 
 ## 🎥 Demo
 
-[**Demo Video**](https://github.com/Monike123/Harmonium-Studio/blob/main/1.mp4)
+https://github.com/user-attachments/assets/6cb769b0-4218-43c8-94b5-a76976214435
 
 ---
 
